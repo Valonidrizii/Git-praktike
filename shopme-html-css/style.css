@@ -1,0 +1,193 @@
+/* 1. VARIABLAT: ndrysho një vlerë këtu dhe ajo përdoret në gjithë faqen. */
+:root {
+  --color-background: #f5efef;
+  --color-text: #333438;
+  --color-primary: #4655b5;
+  --color-primary-hover: #334397;
+  --color-navigation: #606d98;
+  --color-lavender: #d9dfff;
+  --color-circle: #bdc8ff;
+  --color-surface: #fcf9f9;
+  --color-border: #dedbe8;
+  --space-small: 0.75rem;
+  --space-medium: 1.5rem;
+  --space-large: 3rem;
+  --radius: 0.4rem;
+  --container-width: 81.9%;
+  --transition: 180ms ease;
+}
+
+/* 2. BAZA: padding-u dhe border-i përfshihen në gjerësinë e elementit. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+.container { width: min(var(--container-width), 1296px); margin-inline: auto; }
+
+/* 3. FLEX: logoja majtas, menuja djathtas. */
+.site-header { position: absolute; inset: 0 0 auto; z-index: 2; }
+.header-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-medium);
+  padding-top: 1.15rem;
+}
+.brand { flex-shrink: 0; font-size: 3.3rem; font-weight: 700; letter-spacing: -0.04em; }
+.brand-accent { color: var(--color-primary); }
+.brand-smile {
+  display: block;
+  width: 5rem;
+  height: 1.5rem;
+  margin: -0.15rem 0 0 2.3rem;
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(1.3rem, 4.1vw, 4rem);
+  padding-top: 1.75rem;
+  color: var(--color-navigation);
+  font-size: 1.16rem;
+}
+.navigation a { transition: color var(--transition); }
+.navigation a:hover { color: var(--color-primary-hover); }
+
+/* 4. GRID: dy kolona, me hapësirë midis tyre. */
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+.hero { padding-bottom: 5rem; }
+.hero-copy { padding-top: 9rem; }
+.hero-copy h1 {
+  color: var(--color-primary);
+  font-size: clamp(2.25rem, 3.65vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.hero-copy p { margin-top: 1.65rem; font-size: 1.2rem; line-height: 1.5; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.5rem;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.3rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.button:hover { background: var(--color-primary-hover); transform: translateY(-2px); }
+
+/* 5. POSITION: figura mbetet pjesë e Grid; dekorimet vendosen brenda saj. */
+.hero-art {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 474 / 742;
+  border-radius: 0 0 50% 50% / 0 0 32% 32%;
+  background: var(--color-lavender);
+}
+.hero-circle {
+  position: absolute;
+  inset: auto 0 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-circle);
+  z-index: -1;
+}
+.hero-model {
+  position: absolute;
+  left: -3%;
+  bottom: 9.5%;
+  width: 106%;
+  max-width: none;
+  height: auto;
+}
+
+/* 6. GRID I KARTAVE: repeat(4, ...) krijon katër kolona të barabarta. */
+.collections { padding-block: 3rem 5rem; scroll-margin-top: 2rem; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: var(--space-medium); }
+.eyebrow, .collection-count, .card-label { font-size: 0.73rem; letter-spacing: 0.12em; color: var(--color-navigation); }
+.eyebrow { margin-bottom: 0.5rem; }
+.section-heading h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.03em; }
+.collection-count { white-space: nowrap; }
+.collection-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-medium); margin-top: 2rem; }
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 15rem;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  scroll-margin-top: 2rem;
+}
+.card-number { color: var(--color-primary); font-size: 0.8rem; }
+.collection-card h3 { margin-top: 1.5rem; font-size: 1.7rem; font-weight: 600; letter-spacing: -0.03em; }
+.collection-card p { margin-block: var(--space-small) var(--space-medium); font-size: 0.92rem; color: var(--color-navigation); }
+.card-label { margin-top: auto; }
+.collection-card:target { border-color: var(--color-primary); background: #edf0ff; }
+.site-footer { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--color-border); padding-block: 1.5rem; font-size: 0.85rem; }
+.site-footer p { font-weight: 700; }
+.site-footer a { color: var(--color-navigation); }
+
+/* 7. TASTIERA: një lidhje e fokusuar duhet të jetë e dallueshme. */
+a:focus-visible, .collection-card:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 5px; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: 0.7rem 1rem; background: #fff; color: var(--color-primary); }
+.skip-link:focus { top: 1rem; }
+
+/* 8. MEDIA QUERIES: përshtatja për tablet dhe telefon. */
+@media (max-width: 1100px) {
+  :root { --container-width: 88%; }
+  .brand { font-size: 2.7rem; }
+  .navigation { gap: 1.5rem; font-size: 1rem; padding-top: 1.2rem; }
+  .hero-copy { padding-top: 6rem; }
+  .hero-copy p { font-size: 1rem; }
+  .desktop-break { display: none; }
+  .button { margin-top: 2rem; font-size: 1rem; }
+  .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .site-header { position: relative; }
+  .header-layout { flex-direction: column; align-items: center; gap: 1.5rem; padding-block: 1.5rem; }
+  .navigation { justify-content: center; gap: 0.8rem 1.25rem; padding: 0; font-size: 0.95rem; }
+  .hero-layout { grid-template-columns: 1fr; gap: var(--space-large); }
+  .hero-copy { padding-top: 2rem; text-align: center; }
+  .hero-copy h1 { font-size: clamp(1.7rem, 6.4vw, 2.8rem); line-height: 1.35; }
+  .hero-copy p { max-width: 33rem; margin-inline: auto; margin-top: 1.2rem; }
+  .hero-art { width: min(100%, 360px); justify-self: center; border-radius: 45% 45% 50% 50% / 25% 25% 32% 32%; }
+  .hero-model { bottom: 9.5%; }
+  .hero { padding-bottom: 2rem; }
+  .collections { padding-block: 2rem 3rem; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
+}
+@media (max-width: 500px) {
+  .collection-grid { grid-template-columns: 1fr; }
+  .collection-card { min-height: 13rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button, .navigation a { transition: none; }
+  .button:hover { transform: none; }
+}

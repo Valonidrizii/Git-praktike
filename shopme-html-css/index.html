@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Shop.me landing page built with HTML and CSS." />
+    <title>Shop.me — HTML & CSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- FLEX: logoja dhe menuja vendosen në të njëjtin rresht. -->
+    <header class="site-header">
+      <div class="container header-layout">
+        <a class="brand" href="#home" aria-label="Shop.me home">
+          <span>Shop<span class="brand-accent">.me</span></span>
+          <svg class="brand-smile" viewBox="0 0 90 26" aria-hidden="true">
+            <path d="M4 5 Q40 34 78 7" />
+            <path d="M69 4 L82 4 L78 16" />
+          </svg>
+        </a>
+
+        <nav class="navigation" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#men">Men</a>
+          <a href="#women">Women</a>
+          <a href="#kids">Kids</a>
+          <a href="#living">Home &amp; Living</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <!-- GRID: teksti është në kolonën e majtë, fotografia në të djathtën. -->
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <h1 id="hero-title">Create website using<br />HTML &amp; CSS</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br class="desktop-break" />
+              ante mi, egestas vel sem vel.
+            </p>
+            <a class="button" href="#collections">Shop Now</a>
+          </div>
+
+          <!-- Sfondi dhe rrethi janë CSS; vetëm personi është fotografi. -->
+          <div class="hero-art">
+            <span class="hero-circle" aria-hidden="true"></span>
+            <img
+              class="hero-model"
+              src="assets/model.png"
+              alt="A smiling woman wearing a mustard yellow dress and gray boots"
+              width="1199"
+              height="1312"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Shtesë për ushtrim: lidhjet e menusë çojnë te këto kategori. -->
+      <section class="collections container" id="collections" aria-labelledby="collections-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">FIND YOUR EVERYDAY FAVORITES</p>
+            <h2 id="collections-title">Something for everyone.</h2>
+          </div>
+          <span class="collection-count">04 collections</span>
+        </div>
+
+        <!-- GRID: katër karta në desktop, dy në tablet, një në telefon. -->
+        <div class="collection-grid">
+          <article class="collection-card" id="men" tabindex="-1">
+            <span class="card-number">01</span>
+            <h3>Men</h3>
+            <p>Easy layers. Everyday essentials.</p>
+            <span class="card-label">YOUR DAILY EDIT</span>
+          </article>
+          <article class="collection-card" id="women" tabindex="-1">
+            <span class="card-number">02</span>
+            <h3>Women</h3>
+            <p>A little color. A lot of personality.</p>
+            <span class="card-label">FIND YOUR STYLE</span>
+          </article>
+          <article class="collection-card" id="kids" tabindex="-1">
+            <span class="card-number">03</span>
+            <h3>Kids</h3>
+            <p>Comfort made for little adventures.</p>
+            <span class="card-label">READY FOR PLAY</span>
+          </article>
+          <article class="collection-card" id="living" tabindex="-1">
+            <span class="card-number">04</span>
+            <h3>Home &amp; Living</h3>
+            <p>Thoughtful details for your space.</p>
+            <span class="card-label">MAKE IT YOURS</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <p>Shop.me</p>
+      <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+  </body>
+</html>
